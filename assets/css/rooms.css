@@ -1,0 +1,138 @@
+.star_room i{
+    color: rgb(255, 0, 0);
+}
+
+.rooms__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.body__rooms {
+    width: 100%;
+    transform: translateY(100px);
+}
+
+.room__item{
+    margin-top: 20px;
+}
+
+.infor__cost__maxPeople{
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.header{
+    background-color: #30CFD0;
+    z-index: 1;
+}
+
+.option__filter{
+    gap: 10px;
+}
+
+.option__filter__title{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.container_option__filter{
+    width: 100%;
+    background-color: orange;
+    /* height: 50px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.QuantityPerson{
+    position: absolute;
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 0 10px #a0a0a0;
+    border-radius: 5px;
+    margin-top: 5px;
+    transition: all 0.2s linear;
+    z-index: 1;
+}
+
+.QuantityPerson__show{
+    opacity: 1;
+    visibility: visible;
+}
+
+.QuantityPerson__item{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.QuantityPerson__options{
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.QuantityPerson__label{
+    flex: 1.2;
+    text-align: left;
+    font-weight: 700;
+}
+
+.QuantityPerson__options{
+    flex: 1;
+}
+
+.QuantityPerson__operator__sub{
+    padding: 10px;
+    color: red;
+}
+
+.QuantityPerson__operator__plus{
+    padding: 10px;
+    color: green;
+}
+
+.icon_user{
+    position: absolute;
+    color: #9CA3AF;
+    font-size: 20px;
+    top: 10px;
+    left: 10px;
+}
+
+.relative> input{
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+.datepicker-picker{
+    background-color: #fff !important;
+}
+
+.datepicker-cell{
+    color: #000 !important;
+}
+
+.datepicker-cell:hover{
+    background-color: #30CFD0 !important;
+}
+
+.datepicker-controls button{
+    background-color: #30CFD0;
+    transition: all 0.2s linear;
+}
+
+.datepicker-controls button:hover{
+    background-color: #330867;
+}
