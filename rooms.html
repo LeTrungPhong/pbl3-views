@@ -11,6 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -107,6 +108,49 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <button class="button_search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="option__filter">
+                <button class="option__item">
+                    <span>Beach view</span>
+                    
+                </button>
+                <button class="option__item">
+                    <span>Double bed</span>
+                    
+                </button>
+                <button class="option__item">
+                    <span>Luxury</span>
+                    
+                </button>
+                
+            </div>
+            <div class="option__filter">
+                <div class="rangeCost">
+                    <div class="row">
+                        <div class="col-sm-12">
+                          <div id="slider-range"></div>
+                        </div>
+                    </div>
+                      <div class="row slider-labels">
+                        <div class="col-xs-6 caption">
+                          <strong>Min:</strong> <span id="slider-range-value1"></span>
+                        </div>
+                        <div class="col-xs-6 text-right caption">
+                          <strong>Max:</strong> <span id="slider-range-value2"></span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <form>
+                            <input type="hidden" name="min-value" value="">
+                            <input type="hidden" name="max-value" value="">
+                          </form>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>
@@ -1197,5 +1241,6 @@
 
 </body>
 <script src="/assets/js/rooms.js"></script>
+<script src="/assets/js/rangeCost.js"></script>
 
 </html>
