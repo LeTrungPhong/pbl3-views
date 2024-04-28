@@ -58,7 +58,6 @@
   color: white;
   font-weight: 700;
   position: relative;
-
 }
 
 .container .header__sign-button>span {
@@ -85,24 +84,6 @@
   clip-path: circle(150% at 50% 50%);
 }
 
-.container .header__sign-in {
-  border: 1px solid rgb(1, 148, 243);
-}
-
-.container .header__sign-in:hover {
-  background-color: rgb(243, 243, 243);
-}
-
-.container .header__sign-up {
-  background-color: rgb(1, 148, 243);
-  color: white;
-  font-weight: 600;
-}
-
-.container .header__sign-up:hover {
-  background-color: rgb(0, 137, 228);
-}
-
 .container .background-opacity {
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
@@ -110,6 +91,7 @@
   width: 100vw;
   height: 100vh;
   transition: 0.4s ease-in-out;
+  z-index: 2;
 }
 
 .container .sign {
@@ -121,6 +103,7 @@
   transform: translate(-50%, -50%);
   border-radius: 3px;
   transition: 0.4s ease;
+  z-index: 3;
 }
 
 .container .sign-item {
@@ -808,6 +791,3 @@
     margin-left: 0;
   }
 }
-
-
-/*# sourceMappingURL=App.css.map */
