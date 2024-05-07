@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Phòng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* .formModify {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        } */
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 700px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+            margin-right: 20px;
+        }
+
+        .btn-delete:hover {
+            background-color: #d32f2f;
+        }
+
+        .btn-add,
+        .btn-edit {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-add:hover,
+        .btn-edit:hover {
+            background-color: #45a049;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            visibility: hidden;
+            opacity: 0;
+            min-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            z-index: 2;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.3s;
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Quản lý Phòng</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên Phòng</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="room-list">
+            <!-- List rooms -->
+        </tbody>
+    </table>
+    <button class="btn-add" onclick="AddRoom()">Thêm Phòng</button>
+    <!-- <button class="btn-edit" onclick="EditRoom()">Sửa Phòng</button> -->
+
+    <div id="form">
+        <h1 id="edit_or_add"></h1>
+        <form class="formModify" action="" method="post">
+            <label for="room_name">Tên Phòng:</label><br>
+            <input type="text" id="room_name" name="room_name"><br><br>
+            <input type="submit" value="Lưu">
+        </form>
+    </div>
+    <div id="overlay" onclick="CloseForm()"></div>
+
+    <script>
+        function AddRoom() {
+            var form = document.getElementById('form');
+            form.style.visibility = 'visible';
+            form.style.opacity = 1;
+            document.getElementById('edit_or_add').innerText = 'Thêm Phòng';
+            document.getElementById('room_name').value = "";
+            showOverlay()
+        }
+
+        function EditRoom(name_room) {
+            var form = document.getElementById('form');
+            form.style.visibility = 'visible';
+            form.style.opacity = 1;
+            document.getElementById('edit_or_add').innerText = 'Sửa Phòng ';
+            document.getElementById('room_name').value = name_room;
+            showOverlay()
+        }
+
+        function showOverlay() {
+            var overlay = document.getElementById('overlay');
+            overlay.style.zIndex = 1;
+            overlay.style.opacity = 1;
+            overlay.style.visibility = 'visible';
+        }
+
+        function CloseForm() {
+            var form = document.getElementById('form');
+            form.style.visibility = 'hidden';
+            form.style.opacity = 0;
+            CloseOverlay();
+        }
+
+        function CloseOverlay() {
+            var overlay = document.getElementById('overlay');
+            overlay.style.zIndex = -1;
+            overlay.style.opacity = 0;
+            overlay.style.visibility = 'hidden';
+        }
+
+        var initialRooms = [
+            { id: 1, name: "101" },
+            { id: 2, name: "102" },
+            { id: 3, name: "103" }
+        ];
+
+        function showRooms() {
+            var roomList = document.getElementById('room-list');
+            roomList.innerHTML = '';
+            initialRooms.forEach(function (room) {
+                var row = document.createElement('tr');
+                row.innerHTML = '<td>' + room.id + '</td><td>' + room.name + '</td><td><form id="' + room.id + '"method="post" action=""></form><input type="hidden" name="room_id" value="' + room.id + '"><button form=' + room.id + ' class="btn-delete" type="submit">Xóa</button><button class="btn-edit" onclick="EditRoom('+room.name+')">Sửa Phòng</button></td>';
+                roomList.appendChild(row);
+            });
+        }
+
+        showRooms();
+    </script>
+</body>
+
+</html>
