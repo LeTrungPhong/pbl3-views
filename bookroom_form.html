@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Phòng Khách Sạn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            width: calc(100% - 5px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        input[readonly] {
+            background-color: #f4f4f4;
+            cursor: not-allowed;
+        }
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .input-group label,
+        .input-group input {
+            width: calc(100% - 22px);
+        }
+
+        .img_room_booking{
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Thông Tin Đặt Phòng Khách Sạn</h2>
+    <form action="#" method="post">
+        <img class="img_room_booking" src="https://cdn3.ivivu.com/2014/01/SUPER-DELUXE2.jpg" alt="">
+
+        <label for="name">Họ và Tên:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Số Điện Thoại:</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <label for="checkin">Ngày Nhận Phòng:</label>
+        <input type="text" id="checkin" name="checkin" value="04/05/2024" readonly>
+
+        <label for="checkout">Ngày Trả Phòng:</label>
+        <input type="text" id="checkout" name="checkout" value="08/05/2024" readonly>
+
+        <label for="room-type">Loại Phòng:</label>
+        <input type="text" id="room-type" name="room-type" value="Single Room" readonly>
+
+        <div class="input-group">
+            <label for="adults">Người Lớn:</label>
+            <input type="number" id="adults" name="adults" value="2" readonly>
+        </div>
+        
+        <div class="input-group">
+            <label for="children">Trẻ Em:</label>
+            <input type="number" id="children" name="children" value="3" readonly>
+        </div>
+        
+        <label for="total-price">Đơn Giá 1 Đêm: </label>
+        <input type="text" id="total-price" name="total-price" value="20$" readonly>
+        
+        <label for="total-price">Số Ngày Ở: </label>
+        <input type="text" id="total-price" name="total-price" value="4" readonly>
+
+        <label for="total-price">Phụ Phí: </label>
+        <input type="text" id="total-price" name="total-price" value="10$" readonly>
+
+        <label for="total-price">Tổng Tiền:</label>
+        <input type="text" id="total-price" name="total-price" value="90$" readonly>
+
+        <input type="submit" value="Tiến hành thanh toán">
+    </form>
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
